@@ -1,0 +1,25 @@
+{
+  "name": "blog-fullstack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tenczowy/blog-fullstack.git"
+  },
+  "author": "Daniel Brodowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tenczowy/blog-fullstack/issues"
+  },
+  "homepage": "https://github.com/tenczowy/blog-fullstack#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
