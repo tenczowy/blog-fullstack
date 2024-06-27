@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Hello to my blog app!
-</body>
-</html>
+<%- include('partials/header.ejs')%>
+
+<main class="container">
+  <h1 class="heading-primary">
+    Explore the Intersection of Code and Nature: A Journey Through Programming
+    and Hiking Adventures. Dive into tips, tutorials, and tales from the trails.
+  </h1>
+  <div class="post">
+    <h2 class="heading-secondary">Post Title</h2>
+    <p class="post-text">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam explicabo
+      amet beatae ad aspernatur quo delectus rem earum, commodi sint error
+      maxime unde quidem alias obcaecati neque repellendus a dolorum.
+    </p>
+    <div class="post-footer">
+      <p class="author">Daniel Brodowski</p>
+      <div class="post-buttons">
+        <button class="btn btn-edit">Edit</button>
+        <button class="btn btn-delete">Delete</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer.ejs')%>
