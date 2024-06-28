@@ -74,7 +74,7 @@ html {
 .primary-header {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     41deg,
@@ -85,7 +85,7 @@ html {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: aquamarine;
 }
@@ -94,10 +94,12 @@ html {
   display: flex;
   gap: 1rem;
   list-style: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .nav-link {
+  color: #121212;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -116,6 +118,31 @@ body {
   flex: 1;
 }
 
+.add-new-post {
+  font-size: 2rem;
+
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.btn-add {
+  padding: 0;
+  font-weight: 600;
+  border: none;
+  background-image: linear-gradient(to right, #4caf50, #8bc34a);
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-add:focus {
+  outline: none;
+}
+
 /* ================ FOOTER =================== */
 .primary-footer {
   text-align: center;
@@ -131,3 +158,29 @@ body {
 }
 
 /* ================ POST =================== */
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #afafaf;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: #121212;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}

@@ -1,25 +1,28 @@
 <%- include('partials/header.ejs')%>
 
 <main class="container">
-  <h1 class="heading-primary">
-    Explore the Intersection of Code and Nature: A Journey Through Programming
-    and Hiking Adventures. Dive into tips, tutorials, and tales from the trails.
-  </h1>
-  <div class="post">
-    <h2 class="heading-secondary">Post Title</h2>
-    <p class="post-text">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam explicabo
-      amet beatae ad aspernatur quo delectus rem earum, commodi sint error
-      maxime unde quidem alias obcaecati neque repellendus a dolorum.
-    </p>
+  <%- include('partials/heading.ejs')%> <% for(let i = 0; i <
+  locals.posts.length; i++) { %>
+  <div class="post" id="<%=posts[i].id%>">
+    <h2 class="heading-secondary"><%=posts[i].title%></h2>
+    <p class="post-text"><%=posts[i].text%></p>
     <div class="post-footer">
-      <p class="author">Daniel Brodowski</p>
+      <p class="author"><%=posts[i].author%></p>
+
+      <% if(loggedIn?.userName == posts[i].author){ %>
       <div class="post-buttons">
         <button class="btn btn-edit">Edit</button>
         <button class="btn btn-delete">Delete</button>
       </div>
+      <% } %>
     </div>
   </div>
+  <% } %>
 </main>
-
-<%- include('partials/footer.ejs')%>
+<% if(loggedIn?.userName){ %>
+<div class="add-new-post">
+  <button class="btn btn-add" id="add-new-post">
+    <a class="btn-link" href="/add">ADD NEW POST</a>
+  </button>
+</div>
+<% } %> <%- include('partials/footer.ejs')%>

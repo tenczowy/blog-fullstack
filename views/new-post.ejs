@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs')%>
+<main class="container">
+  <form action="/new-post" method="POST" class="post-form">
+    <label for="Post Title">Title:</label>
+    <input type="text" id="post-title" name="postTitle" required />
+    <label for="post-text">Post:</label>
+    <textarea
+      type="text-area"
+      id="post-text"
+      name="postText"
+      rows="4"
+      cols="50"
+      required
+    >
+Write whatever you want!</textarea
+    >
+
+    <input type="submit" value="post-submit" />
+  </form>
+</main>
+<%- include('partials/footer.ejs')%>
