@@ -1,0 +1,16 @@
+@media (max-width: 1024px) {
+  .heading-primary {
+    font-size: 2rem;
+  }
+
+  .primary-nav > ul {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+  .post-form {
+    width: 300px;
+  }
+}

@@ -45,4 +45,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /////////////////////////////
   /////////////////////////////
+  const mobileMenuBtn = document.querySelector('.menu-icon');
+  const closeMenuBtn = document.querySelector('.close-icon');
+  const mobileNav = document.querySelector('.mobile-nav');
+  mobileMenuBtn.addEventListener('click', (e) => {
+    toggleMenu();
+  });
+  closeMenuBtn.addEventListener('click', (e) => {
+    toggleMenu();
+  });
+
+  const toggleMenu = function () {
+    mobileNav.classList.toggle('hidden');
+  };
 });

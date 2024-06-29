@@ -37,7 +37,14 @@ app.post('/login', (req, res) => {
   const login = req.body.username;
   const password = req.body.password;
   loggedIn = validateLogin(login, password, users);
-  res.redirect('/');
+  if (loggedIn) {
+    res.redirect('/');
+  } else {
+    res.render('login.ejs', {
+      loggedIn: loggedIn,
+      message: 'Invalid Credentials! Try again.',
+    });
+  }
 });
 
 app.post('/new-post', (req, res) => {
