@@ -99,7 +99,7 @@ app.patch('/updatePost/:id', (req, res) => {
   const updatedPost = {
     id: postId,
     title: postTitle,
-    content: postText,
+    text: postText,
   };
 
   if (updatePost(updatedPost)) {
