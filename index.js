@@ -4,13 +4,18 @@ import { validateLogin } from './loginValidation.js';
 import { posts, users } from './data.js';
 import { deletePost } from './deletePost.js';
 import { v4 as uuidv4 } from 'uuid';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { updatePost } from './updatePost.js';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = new express();
 const port = 3000;
 let loggedIn; //holds and object of current user when logged in.
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.render('index.ejs', { posts: posts, loggedIn: loggedIn });
@@ -74,6 +79,33 @@ app.delete('/deletePost/:id', (req, res) => {
     res
       .status(500)
       .json({ message: `Failed to delete post with ID ${postId}.` });
+  }
+});
+
+app.get('/update-post/:id', (req, res) => {
+  const postId = req.params.id;
+  const postToUpdate = posts.find((el) => el.id == postId);
+  res.render('update-post.ejs', {
+    loggedIn: loggedIn,
+    postId: postId,
+    post: postToUpdate,
+  });
+});
+
+app.patch('/updatePost/:id', (req, res) => {
+  const postId = req.params.id;
+  const { postTitle, postText } = req.body;
+
+  const updatedPost = {
+    id: postId,
+    title: postTitle,
+    content: postText,
+  };
+
+  if (updatePost(updatedPost)) {
+    res.json({ message: 'Post updated successfully', post: updatedPost });
+  } else {
+    res.status(404).json({ message: 'Post not found' });
   }
 });
 

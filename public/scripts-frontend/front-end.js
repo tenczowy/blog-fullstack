@@ -9,6 +9,50 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  const editBtns = document.querySelectorAll('.btn-edit');
+  editBtns.forEach((btn) =>
+    btn.addEventListener('click', async (e) => {
+      const postId = e.target.closest('.post').id;
+      const redirectUrl = `/update-post/${postId}`;
+
+      window.location.href = redirectUrl;
+    })
+  );
+
+  const form = document.getElementById('update-form');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    const formData = new FormData(form);
+    const id = formData.get('post-id');
+    const data = {
+      postTitle: formData.get('postTitle'),
+      postText: formData.get('postText'),
+    };
+
+    try {
+      const response = await fetch(`/updatePost/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log('Success:', result);
+      window.location.href = '/';
+      // Optionally, redirect to another page or display a success message
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  });
+
   async function deletePost(id) {
     try {
       const response = await fetch(`/deletePost/${id}`, {
@@ -20,23 +64,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Handle the redirection manually if needed
         window.location.href = response.url;
       } else {
-        const contentType = response.headers.get('content-type');
-        let responseData;
+        // const contentType = response.headers.get('content-type');
+        // let responseData;
 
-        if (contentType && contentType.includes('application/json')) {
-          responseData = await response.json();
-        } else {
-          responseData = await response.text(); // Handle HTML or text response
-        }
+        // if (contentType && contentType.includes('application/json')) {
+        //   responseData = await response.json();
+        // } else {
+        //   responseData = await response.text(); // Handle HTML or text response
+        // }
 
         if (!response.ok) {
-          console.error(
-            `Error: ${response.status} - ${response.statusText}\n${responseData}`
-          );
+          console.error(`Error: ${response.status} - ${response.statusText}`);
           throw new Error('Network response was not ok');
         }
-
-        console.log('Response from server:', responseData);
       }
     } catch (error) {
       console.error('Error:', error);

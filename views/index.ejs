@@ -7,7 +7,7 @@
     <h2 class="heading-secondary"><%=posts[i].title%></h2>
     <p class="post-text"><%=posts[i].text%></p>
     <div class="post-footer">
-      <p class="author"><%=posts[i].author%></p>
+      <p class="author">Author: <%=posts[i].author%></p>
 
       <% if(loggedIn?.userName == posts[i].author){ %>
       <div class="post-buttons">

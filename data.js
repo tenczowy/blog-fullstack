@@ -12,20 +12,20 @@ export const users = [
 export let posts = [
   {
     id: 0,
-    title: 'Title 1',
-    text: 'Text place holder 1',
+    title: 'Exploring the Wonders of the Natural World',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci necessitatibus corrupti cupiditate quam, ipsum, vel possimus temporibus porro numquam doloribus neque exercitationem libero quos totam aliquid quaerat optio odio eveniet.',
     author: '1',
   },
   {
     id: 1,
-    title: 'Title 1',
-    text: 'Text place holder 1',
+    title: '10 Tips for Mastering Remote Work',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci necessitatibus corrupti cupiditate quam, ipsum, vel possimus temporibus porro numquam doloribus neque exercitationem libero quos totam aliquid quaerat optio odio eveniet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci necessitatibus corrupti cupiditate quam, ipsum, vel possimus temporibus porro numquam doloribus neque exercitationem libero quos totam aliquid quaerat optio odio eveniet.',
     author: 'Daniel Brodowski',
   },
   {
     id: 2,
-    title: 'Title 2',
-    text: 'Text place holder 2',
+    title: 'The Future of Technology: Innovations to Watch',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci necessitatibus corrupti cupiditate quam, ipsum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci necessitatibus corrupti cupiditate quam, ipsum, vel possimus temporibus porro numquam doloribus neque exercitationem libero quos totam aliquid quaerat optio odio eveniet.',
     author: 'Kasia Brodowska',
   },
 ];
