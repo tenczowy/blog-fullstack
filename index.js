@@ -8,9 +8,9 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { updatePost } from './updatePost.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
 const app = new express();
-const port = 3000;
+const router = express.Router();
+const port = process.env.PORT || 4000;
 let loggedIn; //holds and object of current user when logged in.
 
 app.use(express.static(__dirname + '/public'));
@@ -83,6 +83,9 @@ app.delete('/deletePost/:id', (req, res) => {
 });
 
 app.get('/update-post/:id', (req, res) => {
+  if (!loggedIn) res.render('index.ejs', { posts: posts, loggedIn: loggedIn });
+  return;
+
   const postId = req.params.id;
   const postToUpdate = posts.find((el) => el.id == postId);
   res.render('update-post.ejs', {
@@ -110,5 +113,5 @@ app.patch('/updatePost/:id', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server running on port 3000.');
+  console.log(`Server running on port ${port}.`);
 });

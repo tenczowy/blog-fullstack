@@ -1,6 +1,7 @@
 # example netlify.toml
 [build]
-  command = "yarn run build"
+  command = "npm run build"
+  node_bundler = "esbuild"
   functions = "netlify/functions"
   publish = ""
 

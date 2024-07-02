@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('update-form');
 
   form?.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+    event.preventDefault();
 
     const formData = new FormData(form);
     const id = formData.get('post-id');
@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const result = await response.json();
       console.log('Success:', result);
       window.location.href = '/';
-      // Optionally, redirect to another page or display a success message
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -57,22 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       const response = await fetch(`/deletePost/${id}`, {
         method: 'DELETE',
-        redirect: 'follow', // This ensures fetch follows the redirect
+        redirect: 'follow',
       });
 
       if (response.redirected) {
-        // Handle the redirection manually if needed
         window.location.href = response.url;
       } else {
-        // const contentType = response.headers.get('content-type');
-        // let responseData;
-
-        // if (contentType && contentType.includes('application/json')) {
-        //   responseData = await response.json();
-        // } else {
-        //   responseData = await response.text(); // Handle HTML or text response
-        // }
-
         if (!response.ok) {
           console.error(`Error: ${response.status} - ${response.statusText}`);
           throw new Error('Network response was not ok');
