@@ -83,13 +83,14 @@ app.delete('/deletePost/:id', (req, res) => {
 });
 
 app.get('/update-post/:id', (req, res) => {
-  if (!loggedIn) {
+  const postId = req.params.id;
+  const postToUpdate = posts.find((el) => el.id == postId);
+
+  if (loggedIn.id != req.params.id || !postToUpdate) {
     res.render('index.ejs', { posts: posts, loggedIn: loggedIn });
     return;
   }
 
-  const postId = req.params.id;
-  const postToUpdate = posts.find((el) => el.id == postId);
   res.render('update-post.ejs', {
     loggedIn: loggedIn,
     postId: postId,
