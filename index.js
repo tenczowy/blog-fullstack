@@ -84,7 +84,6 @@ app.delete('/deletePost/:id', (req, res) => {
 
 app.get('/update-post/:id', (req, res) => {
   if (!loggedIn) res.render('index.ejs', { posts: posts, loggedIn: loggedIn });
-  return;
 
   const postId = req.params.id;
   const postToUpdate = posts.find((el) => el.id == postId);
