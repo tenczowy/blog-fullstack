@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', async (e) => {
       const postId = e.target.closest('.post').id;
       const redirectUrl = `/update-post/${postId}`;
+      console.log(redirectUrl);
 
       window.location.href = redirectUrl;
     })

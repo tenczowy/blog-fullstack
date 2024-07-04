@@ -86,9 +86,8 @@ app.get('/update-post/:id', (req, res) => {
   const postId = req.params.id;
   const postToUpdate = posts.find((el) => el.id == postId);
 
-  if (loggedIn.id != req.params.id || !postToUpdate) {
+  if (loggedIn.userName != postToUpdate.author || !postToUpdate) {
     res.render('index.ejs', { posts: posts, loggedIn: loggedIn });
-    return;
   }
 
   res.render('update-post.ejs', {
